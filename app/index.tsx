@@ -1,5 +1,6 @@
 import AppDrawerLayout from "@/components/AppDrawerLayout";
 import FormLayout from "@/components/FormLayout";
+import useCalculatorInputController from "@/hooks/useCalculatorInputController";
 import { ScrollView, StatusBar, StyleSheet, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -9,6 +10,14 @@ import CalculatorTotalComponent from "../components/CalculatorTotalComponent";
 
 export default function Index() {
   const theme = useTheme();
+  const {
+    valuesByMoneyId,
+    totalCents,
+    handleGridKeyPress,
+    handleInputFocus,
+    registerInputFocusCallback,
+    setInputValue,
+  } = useCalculatorInputController();
 
   return (
     <SafeAreaProvider>
@@ -16,14 +25,19 @@ export default function Index() {
         <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.background }]} edges={["top"]}>
 
           <View style={[styles.content, { backgroundColor: theme.colors.background }]}>
-            <CalculatorTotalComponent />
+            <CalculatorTotalComponent totalCents={totalCents} />
 
 
             <ScrollView style={styles.formScroll}>
-              <FormLayout />
+              <FormLayout
+                valuesByMoneyId={valuesByMoneyId}
+                onInputChange={setInputValue}
+                onInputFocus={handleInputFocus}
+                registerInputFocusCallback={registerInputFocusCallback}
+              />
             </ScrollView>
 
-            <ButtonGrid />
+            <ButtonGrid onKeyPress={handleGridKeyPress} />
           </View>
         </SafeAreaView>
       </AppDrawerLayout>
