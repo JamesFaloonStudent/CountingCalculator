@@ -2,21 +2,39 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Deploy to GitHub Pages (project site)
+## Deploy to web hosts
 
-This repository is configured for the GitHub Pages project URL:
+### GitHub Pages (project site)
+
+This project page is hosted at:
 `https://JamesFaloonStudent.github.io/CountingCalculator`.
 
-Key settings already in this repo:
-
-- `app.json` uses `expo.experiments.baseUrl` set to `/CountingCalculator`.
-- `package.json` deploy script uses `gh-pages --nojekyll -d dist` so `_expo/*` assets are served correctly.
-
-Deploy with:
+Use:
 
 ```bash
 npm run deploy
 ```
+
+This runs a subpath-aware build (`build:gh-pages`) with
+`EXPO_PUBLIC_WEB_BASE_URL=/CountingCalculator` and publishes `dist` with `--nojekyll`.
+
+### Vercel (root-path hosting)
+
+Vercel uses:
+
+```bash
+npm run build:vercel
+```
+
+Do not set `EXPO_PUBLIC_WEB_BASE_URL` on Vercel; root hosting should use `/`.
+
+### Post-deploy interaction checks
+
+After each deployment, verify:
+
+1. The menu button opens/closes the drawer and navigation to **Settings** works.
+2. Pressing keypad buttons (for example `1`, `+`, `2`, `Enter`) updates the focused input.
+3. `Tab` and `Shift-Tab` move focus between denomination inputs.
 
 ## Get started
 

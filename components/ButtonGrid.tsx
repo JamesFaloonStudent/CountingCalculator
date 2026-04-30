@@ -21,7 +21,7 @@ const buttons: { id: number; value: ButtonGridKey }[] = [
   { id: 12, value: "*" },
   { id: 13, value: 0 },
   { id: 14, value: "Back" },
-  { id: 15, value: "Tab" },
+  { id: 15, value: "Enter" },
   { id: 16, value: "/" },
   { id: 17, value: "Tab" },
   { id: 18, value: "Shift-Tab" },
