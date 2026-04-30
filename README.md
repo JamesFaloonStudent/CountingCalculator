@@ -2,6 +2,22 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Deploy to GitHub Pages (project site)
+
+This repository is configured for the GitHub Pages project URL:
+`https://JamesFaloonStudent.github.io/CountingCalculator`.
+
+Key settings already in this repo:
+
+- `app.json` uses `expo.experiments.baseUrl` set to `/CountingCalculator`.
+- `package.json` deploy script uses `gh-pages --nojekyll -d dist` so `_expo/*` assets are served correctly.
+
+Deploy with:
+
+```bash
+npm run deploy
+```
+
 ## Get started
 
 1. Install dependencies
