@@ -1,3 +1,4 @@
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { usePathname, useRouter } from "expo-router";
 import { ReactNode, useMemo, useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
@@ -31,7 +32,7 @@ export default function AppDrawerLayout({ children }: AppDrawerLayoutProps) {
     <View style={styles.root}>
       <Appbar.Header style={[styles.header, { backgroundColor: theme.colors.surface }]}>
         <Appbar.Action
-          icon="menu"
+          icon={() => <FontAwesome name="bars" size={24} color={theme.colors.onSurface} />}
           iconColor={theme.colors.onSurface}
           accessibilityLabel="Open navigation menu"
           onPress={() => setDrawerOpen(true)}
@@ -52,7 +53,7 @@ export default function AppDrawerLayout({ children }: AppDrawerLayoutProps) {
           <Surface style={[styles.drawer, { backgroundColor: theme.colors.surface }]}>
             <View style={styles.drawerHeader}>
               <Appbar.Action
-                icon="close"
+                icon={() => <FontAwesome name="close" size={24} color={theme.colors.onSurface} />}
                 iconColor={theme.colors.onSurface}
                 accessibilityLabel="Close navigation menu"
                 onPress={() => setDrawerOpen(false)}
@@ -62,13 +63,13 @@ export default function AppDrawerLayout({ children }: AppDrawerLayoutProps) {
             <Drawer.Section title="Navigation">
               <Drawer.Item
                 label="Home"
-                icon="home-outline"
+                icon={() => <FontAwesome name="home" size={24} color={theme.colors.onSurface} />}
                 active={pathname === "/"}
                 onPress={() => navigateTo("/")}
               />
               <Drawer.Item
                 label="Settings"
-                icon="cog-outline"
+                icon={() => <FontAwesome name="cog" size={24} color={theme.colors.onSurface} />}
                 active={pathname === "/settings"}
                 onPress={() => navigateTo("/settings")}
               />

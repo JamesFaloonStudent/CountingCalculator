@@ -19,8 +19,8 @@ export default function Index() {
     setInputValue,
   } = useCalculatorInputController();
 
-  return (
-    <SafeAreaProvider>
+  return (  
+    <SafeAreaProvider style={styles.background}>
       <AppDrawerLayout>
         <SafeAreaView style={[styles.container, { backgroundColor: theme.colors.background }]} edges={["top"]}>
 
@@ -41,9 +41,8 @@ export default function Index() {
           </View>
         </SafeAreaView>
       </AppDrawerLayout>
-
     </SafeAreaProvider>
-
+    
   );
 }
 
@@ -52,6 +51,9 @@ export default function Index() {
 
 
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor : "#000000",
+  },
   container: {
     flex: 1,
     paddingTop: 10,

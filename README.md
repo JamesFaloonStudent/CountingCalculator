@@ -35,6 +35,7 @@ After each deployment, verify:
 1. The menu button opens/closes the drawer and navigation to **Settings** works.
 2. Pressing keypad buttons (for example `1`, `+`, `2`, `Enter`) updates the focused input.
 3. `Tab` and `Shift-Tab` move focus between denomination inputs.
+4. Tapping denomination text inputs does **not** open the device soft keyboard (keypad-only mode).
 
 ## Get started
 

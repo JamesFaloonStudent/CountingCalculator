@@ -1,6 +1,6 @@
 import { CountableMoney } from "@/types/CountableMoney";
 import { useEffect, useRef } from "react";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { TextInput, useTheme } from "react-native-paper";
 
 interface FormTextInputProps {
@@ -30,6 +30,7 @@ export default function FormTextInput({
 }: FormTextInputProps) {
   const theme = useTheme();
   const textInputRef = useRef<{ focus: () => void } | null>(null);
+  const isWeb = Platform.OS === "web";
 
   useEffect(() => {
     registerFocusCallback(() => {
@@ -62,10 +63,13 @@ export default function FormTextInput({
       value={value}
       onChangeText={onChangeText}
       onFocus={onFocus}
+      onPressIn={onFocus}
       textColor={theme.colors.onSurface}
       outlineColor={theme.colors.outline}
       activeOutlineColor={theme.colors.primary}
-      showSoftInputOnFocus={false} 
+      showSoftInputOnFocus={false}
+      readOnly={isWeb}
+      inputMode={isWeb ? "none" : undefined}
     />
   );
 }
